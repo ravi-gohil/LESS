@@ -1,0 +1,9 @@
+p {
+	@list: "audi", "benz", "toyota", "honda", "mahindra", "bmw", "tata";
+	@val : length(@list);
+		font-size:@val;
+		@l : 10px, 20px, 30px, 40px
+	@v : extract(@list, 2);
+		font-size:@val;
+
+}

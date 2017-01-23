@@ -1,0 +1,283 @@
+@primaryvolor : #FF7F50;
+@color: #800080;
+h1 {
+	color:@primaryvolor;
+}
+
+h2 {
+	color: @color;
+}
+
+.container {
+	h1{
+		font-size: 25px;
+		color: blue;
+	}
+	p {
+		font-size: 30px;
+		color:green;
+	}
+	.myvlass {
+		h1{
+			font-size: 22px;
+			color: red;
+		}
+		p {
+			font-size: 10px ! important;
+			color: yellow;
+		}
+	}
+}
+
+.my {
+	@media screen {
+		color : blue;
+		@media(min-width: 1024px){
+		color: green;
+		}
+	}
+	@media mytext {
+		color: black;
+	}
+}
+
+@fontsize: 10px;
+.op {
+	font-size: @fontsize * 3;
+	color	: #123456 + #654321;
+}
+
+.esc {
+	p {
+		color : ~"red";
+	}
+}
+
+.fun {
+	@color: #654564;
+	@width: 1.0;
+	h1, p {
+		color: @color;
+		width: percentage(@width / 20);
+	}
+	
+}
+
+.class1 {
+	.class2 {
+		.val(@param) {
+			font-size : @param;
+			/*it display the
+			pink color !*/
+			color: pink;
+		}
+	}
+}
+
+.name {
+	.class1 > .class2 > .val (20px);
+}
+//It display the scope concept
+@var : @a;
+@a : 15px;
+.sc {
+	font-size: @var;
+	@a : 20px;
+	color : purple;
+}
+@import "../LESS/import.less";
+.im {
+	color : orange;
+}
+
+.ex {
+	.sty {
+		background-color : red;
+	}
+	h1 {
+	&:extend{.sty};
+	font-style : italic;
+	} 
+	
+}
+
+.mx() {
+	background : pink;
+}
+.mx1 {
+	color : green;
+	.mx();
+}
+.mx2 {
+	color : blue;
+	.mx;
+}
+
+.mixin() { 
+	&:hover {
+		background : red;
+	}
+}
+
+.se {
+	a {
+		.mixin() !important;
+	}
+}
+#namespace when (@color = blue) {
+	.mixin() {
+		color : red;
+		background : pink;
+	}
+}
+
+.gn {
+	h2, p {
+		#namespace.mixin();
+	}
+}
+
+.mix(@color, @padding : 2){
+	color : @color;
+	padding : @padding;
+}
+
+.mp {
+	.mix(#458871);
+}
+
+.box-shadow (@x: 0; @y: 0 ; @height: 3px; @width : 3px) {
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow : @arguments;
+	box-shadow : @arguments;
+}
+
+.arg {
+	.box-shadow (2px, 2px);	
+}
+
+.mi(dark; @color) {
+	color: darken(@color, 15%);
+}
+.mi(light; @color){
+	color: lighten(@color, 15%);
+}
+
+@color-new: dark;
+.pat{
+	.mi(@color-new; #ff0000);
+
+}
+
+
+.padding(@x, @y) {
+	@padding: ( (@x + @y)/2);
+}
+
+.ret {
+	.padding(100px, 70px);
+	padding-left: @padding;
+}
+.outermixin (@val){
+	.innermixin(){
+		font-size: @val;
+	}
+}
+.mim {
+	.outermixin(40);
+	.innermixin();
+}
+
+@detached-ruleset: {
+	.mixin() {
+		font-family: "Coimic Sans MS";
+		background-color: #AA86EE;
+	 }
+};
+
+.pass {
+	@detached-ruleset();
+	.mixin();
+}
+
+.mixin(@a) when (@a >= 20px){
+	color : red;
+}
+
+.mixin(@a) when (@a < 20px) {
+	color: blue;
+}
+.mixin(@a){
+	font-size: @a;
+}
+
+.gco {
+	.mixin(12px);
+}
+
+.mixi(@a;@b:red) when (iscolor(@b)) {
+color: pink;
+}
+.mixi(@a) when (ispixel(@a)) {
+	font-size : @a;
+}
+.tcf {
+	.mixi (20px);
+}
+
+@usedscope : global;
+.mixini() {
+	@usedscope : mixin ;
+	.lcg1 when (@usedscope = global) {
+		background : blue;
+		color : white;
+	}
+	.lcg2 when (@usedscope = mixini) {
+		background : red;
+		color : white;
+	}
+	@usedscope : mixini;
+}
+.mixini();
+
+.1(@count) when (@count > 0) {
+	.1((@count - 1));
+	width: (25 * @count);
+}
+div {
+	.1(5);
+	}
+	
+.fu(){
+box-shadow+ : 5px 5px 5px grey;
+}	
+.mer {
+	.fu();
+	box-shadow+: 0 0 5px #f78181;
+}
+
+.func() {
+	transform+_ : scale(1);
+}
+.mers {
+	.func();
+	transform+_ : rotate(2deg);
+}
+
+.ps {
+	a {
+		color: pink;
+	}
+	&:hover {
+		background : black;
+	}
+}
+body {
+	background-image:url("tiger.jpg");
+	image-size: image-size("tiger.jpg");
+	width:image-width("tiger.jpg");
+	height:image-height("tiger.jpg");
+	meter:convert(10cm, mm);
+	time:convert(3s, "ms");
+	no-unit:convert(5, mm);
+}

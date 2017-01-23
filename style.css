@@ -1,0 +1,155 @@
+h1 {
+  color: #FF7F50;
+}
+h2 {
+  color: blue;
+}
+.container h1 {
+  font-size: 25px;
+  color: blue;
+}
+.container p {
+  font-size: 30px;
+  color: green;
+}
+.container .myvlass h1 {
+  font-size: 22px;
+  color: red;
+}
+.container .myvlass p {
+  font-size: 10px ! important;
+  color: yellow;
+}
+@media screen {
+  .my {
+    color: blue;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .my {
+    color: green;
+  }
+}
+@media mytext {
+  .my {
+    color: black;
+  }
+}
+.op {
+  font-size: 30px;
+  color: #777777;
+}
+.esc p {
+  color: red;
+}
+.fun h1,
+.fun p {
+  color: #654564;
+  width: 5%;
+}
+.name {
+  font-size: 20px;
+  /*it display the
+			pink color !*/
+  color: pink;
+}
+.sc {
+  font-size: 20px;
+  color: purple;
+}
+.im1 {
+  color: red;
+}
+.im2 {
+  color: blue;
+}
+.im {
+  color: orange;
+}
+.ex .sty {
+  background-color: red;
+}
+.ex h1 {
+  font-style: italic;
+}
+.ex h1:extend {
+  background-color: red;
+}
+.mx1 {
+  color: green;
+  background: pink;
+}
+.mx2 {
+  color: blue;
+  background: pink;
+}
+.se a:hover {
+  background: red !important;
+}
+.gn h2,
+.gn p {
+  color: red;
+  background: pink;
+}
+.mp {
+  color: #458871;
+  padding: 2;
+}
+.arg {
+  -webkit-box-shadow: 2px 2px 3px 3px;
+  -moz-box-shadow: 2px 2px 3px 3px;
+  box-shadow: 2px 2px 3px 3px;
+}
+.pat {
+  color: #b30000;
+}
+.ret {
+  padding-left: 85px;
+}
+.mim {
+  font-size: 40;
+}
+.pass {
+  font-family: "Coimic Sans MS";
+  background-color: #AA86EE;
+}
+.gco {
+  color: blue;
+  font-size: 12px;
+}
+.tcf {
+  color: pink;
+  font-size: 20px;
+}
+.lcg2 {
+  background: red;
+  color: white;
+}
+div {
+  width: 25;
+  width: 50;
+  width: 75;
+  width: 100;
+  width: 125;
+}
+.mer {
+  box-shadow: 5px 5px 5px grey, 0 0 5px #f78181;
+}
+.mers {
+  transform: scale(1) rotate(2deg);
+}
+.ps a {
+  color: pink;
+}
+.ps:hover {
+  background: black;
+}
+body {
+  background-image: url("tiger.jpg");
+  image-size: 1600px 1200px;
+  width: 1600px;
+  height: 1200px;
+  meter: 100mm;
+  time: 3000ms;
+  no-unit: 5;
+}
